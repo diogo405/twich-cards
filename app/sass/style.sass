@@ -1,0 +1,88 @@
+$bg: #6441A4
+$card-hover: #3F2967
+$card-unavailable: #9275C8
+$card-streaming: #2C1D47
+
+
+*
+	padding: 0
+	margin: 0
+a
+	text-decoration: none
+
+body
+	background-color: $bg
+	font-family: 'Yanone Kaffeesatz', sans-serif
+
+
+.cards
+	display: flex
+	justify-content: center
+	flex-flow: row wrap
+	& *
+		box-sizing: border-box
+
+
+.card
+	width: 200px
+	height: 200px
+	padding: 30px
+	cursor: pointer
+	text-align: center
+	transition: all .5s ease
+	&:hover
+		background-color: $card-hover
+	&:hover .card-user
+		opacity: 1
+	&:hover .card-streamingTitle
+		opacity: 1
+	&:hover .card-image
+		width: 50%
+	&:hover .cardStatus-unavailable
+		opacity: 1
+.card-isStreaming
+	animation: streaming 1s ease infinite
+.card-isUnavailable
+	background-color: $card-unavailable
+
+
+.card-image
+	border-radius: 100%
+	width: 100%
+	border: 4px white solid
+	transition: all .5s ease
+.card-image-isOffline
+	border: none
+.card-image-isUnavailable
+	opacity: .5
+
+
+.card-user
+	position: relative
+	bottom: 0
+	font-size: 1.25em
+	color: white
+	letter-spacing: 3px
+	margin-top: 10px	
+	opacity: 0
+
+
+.card-streamingTitle
+	position: relative
+	top: 0
+	font-style: italic
+	color: gray
+	font-size: 1em
+	opacity: 0
+
+
+.cardStatus-unavailable
+	position: relative
+	top: 0
+	color: white
+	opacity: 0
+
+
+@keyframes streaming
+	50%
+		background-color: $card-streaming

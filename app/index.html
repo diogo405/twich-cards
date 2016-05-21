@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="twitchCardsApp">
+  <head>
+    <title>Twich Cards</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+    <script src="../bower_components/angular/angular.js"></script>
+  </head>
+  <body> 
+    <div ng-controller="TwichCardsController" class="cards">
+      <div ng-class="{'card-isStreaming': user.isStreaming, 'card-isUnavailable': user.isUnavailable}" ng-repeat="user in twitchUsers" ng-click="openTwitch(user)" class="card"><img src="{{user.image}}" ng-class="{'card-image-isOffline': user.isOffline, 'card-image-isUnavailable': user.isUnavailable}" class="card-image">
+        <p class="card-user">{{user.username}}</p>
+        <p ng-show="user.isStreaming" class="card-streamingTitle">{{user.streamingTitle}}</p>
+        <p ng-class="{'cardStatus-unavailable': user.isUnavailable}" ng-show="user.isUnavailable">Unavailable </p>
+      </div>
+    </div>
+    <script src="js/app.js"> </script>
+  </body>
+</html>
