@@ -12,7 +12,7 @@ html(ng-app='twitchCardsApp')
 			
 			div(class='card', ng-class="{'card-isStreaming': user.isStreaming, 'card-isUnavailable': user.isUnavailable}", ng-repeat='user in twitchUsers', ng-click="openTwitch(user)")
 				
-				img(class='card-image', src='{{user.image}}', ng-class="{'card-image-isOffline': user.isOffline, 'card-image-isUnavailable': user.isUnavailable}")
+				img(class='card-image', ng-src='{{user.image}}', ng-class="{'card-image-isOffline': user.isOffline, 'card-image-isUnavailable': user.isUnavailable}")
 				
 				p(class='card-user') {{user.username}}
 				
