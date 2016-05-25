@@ -1,16 +1,23 @@
 doctype html
 html(ng-app='twitchCardsApp')
+	
 	head
 		title Twich Cards
 		link(href='css/style.css', rel='stylesheet')
 		link(href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz' rel='stylesheet')
-		script(src='../bower_components/angular/angular.js')
+		script(src='../bower_components/angular/angular.min.js')
+	
 	body 
 		.cards(ng-controller='TwichCardsController')
+			
 			div(class='card', ng-class="{'card-isStreaming': user.isStreaming, 'card-isUnavailable': user.isUnavailable}", ng-repeat='user in twitchUsers', ng-click="openTwitch(user)")
+				
 				img(class='card-image', src='{{user.image}}', ng-class="{'card-image-isOffline': user.isOffline, 'card-image-isUnavailable': user.isUnavailable}")
+				
 				p(class='card-user') {{user.username}}
+				
 				p(class='card-streamingTitle', ng-show='user.isStreaming') {{user.streamingTitle}}
+				
 				p(ng-class="{'cardStatus-unavailable': user.isUnavailable}", ng-show='user.isUnavailable') Unavailable 
 
 		script(src='js/app.js') 
